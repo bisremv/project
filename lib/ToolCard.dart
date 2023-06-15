@@ -4,7 +4,7 @@ class ToolsCards extends StatelessWidget {
   String CardText;
   String route;
   IconData CardIcon;
-  ToolsCards(this.CardText, this.CardIcon, this.route);
+  ToolsCards(this.CardText, this.CardIcon, this.route, {super.key});
   @override
   Widget build(BuildContext context) {
     return Expanded(

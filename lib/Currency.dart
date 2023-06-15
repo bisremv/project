@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project/Home.dart';
 import 'package:project/Tools.dart';
-import 'main.dart';
+// import 'main.dart';
 
 class Currency extends StatelessWidget {
   const Currency({super.key});
@@ -21,6 +21,9 @@ class CurrencyScreen extends StatefulWidget {
 
 class _CurrencyScreenState extends State<CurrencyScreen> {
   int _selectedIndex = 0;
+  // Step 1.
+  String dropdownValue = 'Dog';
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -97,7 +100,7 @@ class _CurrencyScreenState extends State<CurrencyScreen> {
                                 height: 55,
                                 width: 55,
                                 decoration: BoxDecoration(
-                                    color: Colors.red,
+                                    // color: Colors.red,
                                     borderRadius: BorderRadius.circular(155)),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(55),
@@ -112,9 +115,31 @@ class _CurrencyScreenState extends State<CurrencyScreen> {
                             SizedBox(
                                 width:
                                     18), // Add spacing between the image and text
-                            Text(
-                                "data"), // Add spacer to push the icon and text field to the right
-                            Icon(Icons.arrow_drop_down),
+                            DropdownButton<String>(
+                              // Step 3.
+                              value: dropdownValue,
+                              // Step 4.
+                              items: <String>[
+                                'Dog',
+                                'Cat',
+                                'Tiger',
+                                'Lion'
+                              ].map<DropdownMenuItem<String>>((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(
+                                    value,
+                                    style: TextStyle(fontSize: 15),
+                                  ),
+                                );
+                              }).toList(),
+                              // Step 5.
+                              onChanged: (String? newValue) {
+                                setState(() {
+                                  dropdownValue = newValue!;
+                                });
+                              },
+                            ),
                             SizedBox(
                                 width:
                                     22), // Add spacing between the icon and text field
@@ -165,7 +190,7 @@ class _CurrencyScreenState extends State<CurrencyScreen> {
                                 height: 55,
                                 width: 55,
                                 decoration: BoxDecoration(
-                                    color: Colors.red,
+                                    // color: Colors.red,
                                     borderRadius: BorderRadius.circular(155)),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(55),
@@ -180,9 +205,31 @@ class _CurrencyScreenState extends State<CurrencyScreen> {
                             SizedBox(
                                 width:
                                     18), // Add spacing between the image and text
-                            Text(
-                                "data"), // Add spacer to push the icon and text field to the right
-                            Icon(Icons.arrow_drop_down),
+                            DropdownButton<String>(
+                              // Step 3.
+                              value: dropdownValue,
+                              // Step 4.
+                              items: <String>[
+                                'Dog',
+                                'Cat',
+                                'Tiger',
+                                'Lion'
+                              ].map<DropdownMenuItem<String>>((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(
+                                    value,
+                                    style: TextStyle(fontSize: 15),
+                                  ),
+                                );
+                              }).toList(),
+                              // Step 5.
+                              onChanged: (String? newValue) {
+                                setState(() {
+                                  dropdownValue = newValue!;
+                                });
+                              },
+                            ),
                             SizedBox(
                                 width:
                                     22), // Add spacing between the icon and text field
@@ -204,7 +251,7 @@ class _CurrencyScreenState extends State<CurrencyScreen> {
                               ),
                             ),
                           ],
-                        )
+                        ),
                       ],
                     ),
                   ),
