@@ -1,23 +1,25 @@
 import 'package:flutter/material.dart';
-import 'Home.dart';
-import 'ToolCard.dart';
+import 'package:project/Home.dart';
+import 'Tools.dart';
 
-class Toolspage extends StatelessWidget {
-  const Toolspage({super.key});
+class CalendarConverter extends StatelessWidget {
+  const CalendarConverter({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Toolscreen();
+    return CalendarConverterScreen();
   }
 }
 
-class Toolscreen extends StatefulWidget {
-  const Toolscreen({super.key});
+class CalendarConverterScreen extends StatefulWidget {
+  const CalendarConverterScreen({super.key});
 
   @override
-  State<Toolscreen> createState() => _ToolscreenState();
+  State<CalendarConverterScreen> createState() =>
+      _CalendarConverterScreenState();
 }
 
-class _ToolscreenState extends State<Toolscreen> {
+class _CalendarConverterScreenState extends State<CalendarConverterScreen> {
   int _selectedIndex = 0;
   void _onItemTapped(int index) {
     setState(() {
@@ -44,31 +46,9 @@ class _ToolscreenState extends State<Toolscreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: SafeArea(
-          child: Column(
-            children: [
-              Text(
-                "TOOLS",
-                style: TextStyle(fontSize: 32, fontWeight: FontWeight.w900),
-              ),
-              Row(
-                children: [
-                  ToolsCards("Map", Icons.map, "map"),
-                  ToolsCards("Currency Converter", Icons.currency_exchange,
-                      "currency"),
-                  // ToolsCards("Currency converter", Icons.currency_exchange),
-                ],
-              ),
-              Row(
-                children: [
-                  ToolsCards("Calendar", Icons.calendar_month, "calendar"),
-                  ToolsCards(
-                      "Calendar converter", Icons.calendar_today, "Calcov"),
-                ],
-              ),
-            ],
-          ),
+      body: SafeArea(
+        child: Center(
+          child: Text("Calendar converter"),
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(

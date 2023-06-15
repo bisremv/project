@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
-import 'Home.dart';
-import 'ToolCard.dart';
+import 'Tools.dart';
+import 'package:project/Home.dart';
 
-class Toolspage extends StatelessWidget {
-  const Toolspage({super.key});
+class Map extends StatelessWidget {
+  const Map({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Toolscreen();
+    return MapScreen();
   }
 }
 
-class Toolscreen extends StatefulWidget {
-  const Toolscreen({super.key});
+class MapScreen extends StatefulWidget {
+  const MapScreen({super.key});
 
   @override
-  State<Toolscreen> createState() => _ToolscreenState();
+  State<MapScreen> createState() => _MapScreenState();
 }
 
-class _ToolscreenState extends State<Toolscreen> {
+class _MapScreenState extends State<MapScreen> {
   int _selectedIndex = 0;
   void _onItemTapped(int index) {
     setState(() {
@@ -44,31 +45,9 @@ class _ToolscreenState extends State<Toolscreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: SafeArea(
-          child: Column(
-            children: [
-              Text(
-                "TOOLS",
-                style: TextStyle(fontSize: 32, fontWeight: FontWeight.w900),
-              ),
-              Row(
-                children: [
-                  ToolsCards("Map", Icons.map, "map"),
-                  ToolsCards("Currency Converter", Icons.currency_exchange,
-                      "currency"),
-                  // ToolsCards("Currency converter", Icons.currency_exchange),
-                ],
-              ),
-              Row(
-                children: [
-                  ToolsCards("Calendar", Icons.calendar_month, "calendar"),
-                  ToolsCards(
-                      "Calendar converter", Icons.calendar_today, "Calcov"),
-                ],
-              ),
-            ],
-          ),
+      body: SafeArea(
+        child: Center(
+          child: Text("map"),
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(

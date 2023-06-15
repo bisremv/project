@@ -1,23 +1,26 @@
 import 'package:flutter/material.dart';
-import 'Home.dart';
-import 'ToolCard.dart';
+import 'package:project/Home.dart';
+import 'Tools.dart';
 
-class Toolspage extends StatelessWidget {
-  const Toolspage({super.key});
+class Calendar extends StatelessWidget {
+  const Calendar({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Toolscreen();
+    return Container(
+      child: Center(child: Text("calendar")),
+    );
   }
 }
 
-class Toolscreen extends StatefulWidget {
-  const Toolscreen({super.key});
+class CalendarScreen extends StatefulWidget {
+  const CalendarScreen({super.key});
 
   @override
-  State<Toolscreen> createState() => _ToolscreenState();
+  State<CalendarScreen> createState() => _CalendarScreenState();
 }
 
-class _ToolscreenState extends State<Toolscreen> {
+class _CalendarScreenState extends State<CalendarScreen> {
   int _selectedIndex = 0;
   void _onItemTapped(int index) {
     setState(() {
@@ -44,31 +47,9 @@ class _ToolscreenState extends State<Toolscreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: SafeArea(
-          child: Column(
-            children: [
-              Text(
-                "TOOLS",
-                style: TextStyle(fontSize: 32, fontWeight: FontWeight.w900),
-              ),
-              Row(
-                children: [
-                  ToolsCards("Map", Icons.map, "map"),
-                  ToolsCards("Currency Converter", Icons.currency_exchange,
-                      "currency"),
-                  // ToolsCards("Currency converter", Icons.currency_exchange),
-                ],
-              ),
-              Row(
-                children: [
-                  ToolsCards("Calendar", Icons.calendar_month, "calendar"),
-                  ToolsCards(
-                      "Calendar converter", Icons.calendar_today, "Calcov"),
-                ],
-              ),
-            ],
-          ),
+      body: SafeArea(
+        child: Center(
+          child: Text("map"),
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
