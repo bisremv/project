@@ -9,6 +9,9 @@ import 'Map.dart';
 void main() {
   runApp(
     MaterialApp(
+      theme: ThemeData(
+        primaryColor: Color(0xFF6750a4),
+      ),
       initialRoute: '/',
       routes: {
         '/': (context) => Home(),

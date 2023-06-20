@@ -16,7 +16,7 @@ class FeaturedImg extends StatelessWidget {
           children: [
             Text("$imgName"),
             SizedBox(
-              height: 15,
+              height: 10,
             ),
             Container(
               decoration: BoxDecoration(
@@ -37,8 +37,8 @@ class FeaturedImg extends StatelessWidget {
                 borderRadius: BorderRadius.circular(14.0),
                 child: Image.asset(
                   imgUrl,
-                  width: 150,
-                  height: 100,
+                  width: 170,
+                  height: 200,
                   fit: BoxFit.cover,
                 ),
               ),

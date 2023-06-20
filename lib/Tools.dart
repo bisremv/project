@@ -44,14 +44,16 @@ class _ToolscreenState extends State<Toolscreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "TOOLS",
+          style: TextStyle(fontSize: 32, fontWeight: FontWeight.w900),
+        ),
+      ),
       body: Container(
         child: SafeArea(
           child: Column(
             children: [
-              Text(
-                "TOOLS",
-                style: TextStyle(fontSize: 32, fontWeight: FontWeight.w900),
-              ),
               Row(
                 children: [
                   ToolsCards("Map", Icons.map, "map"),

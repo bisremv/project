@@ -7,6 +7,8 @@ class Home extends StatefulWidget {
   State<Home> createState() => _HomeState();
 }
 
+int _index = 0;
+
 class _HomeState extends State<Home> {
   int _selectedIndex = 0;
   void _onItemTapped(int index) {
@@ -24,88 +26,71 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 58.0),
-              child: Column(
+      appBar: AppBar(
+        title: Text("Home"),
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(12),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    '\"Traveling—it leaves you speechless then turns you into a storyteller.\"',
-                    style: TextStyle(
-                      fontSize: 32,
-                      fontWeight: FontWeight.w500,
-                    ),
-                    textAlign: TextAlign.center,
+                    "Featured Attractions Carousel",
+                    style: TextStyle(fontSize: 20),
                   ),
                   SizedBox(
-                    height: 35,
+                    height: 15,
                   ),
-                  Text(
-                    '- Ibn Battuta',
-                    style: TextStyle(fontSize: 22),
-                    textAlign: TextAlign.center,
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(19),
+                      // color: Colors.black,
+                    ),
+                    height: 250,
+                    child: Container(
+                        // color: Colors.blue,
+                        // height: 500, // card height
+                        child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        FeaturedImg("imgName", "img/blue-nile-water-falls.png"),
+                        FeaturedImg("imgName",
+                            "img/Axum-the-cradel-of-Ethiopiac-civ.png"),
+                        FeaturedImg("imgName", "img/blue-nile-water-falls.png"),
+                        FeaturedImg("imgName", "img/blue-nile-water-falls.png"),
+                        FeaturedImg("imgName",
+                            "img/Axum-the-cradel-of-Ethiopiac-civ.png"),
+                        FeaturedImg("imgName", "img/blue-nile-water-falls.png"),
+                      ],
+                    )),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 8.0),
+                    child: Column(
+                      children: [
+                        Text(
+                          '\"Traveling—it leaves you speechless then turns you into a storyteller.\"',
+                          style: TextStyle(
+                            fontSize: 32,
+                            fontWeight: FontWeight.w500,
+                          ),
+                          textAlign: TextAlign.start,
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
                   ),
                 ],
               ),
-            ),
-            SizedBox(
-              height: 60,
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Featured Attractions Carousel",
-                  style: TextStyle(fontSize: 20),
-                ),
-                SizedBox(
-                  height: 35,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(19),
-                    color: Color(0xFFf7f5fe),
-                  ),
-                  child: Column(
-                    children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          FeaturedImg("imgName",
-                              "img/Axum-the-cradel-of-Ethiopiac-civ.png"),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          FeaturedImg("imgName",
-                              "img/Axum-the-cradel-of-Ethiopiac-civ.png"),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          FeaturedImg("imgName",
-                              "img/Axum-the-cradel-of-Ethiopiac-civ.png"),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          FeaturedImg("imgName",
-                              "img/Axum-the-cradel-of-Ethiopiac-civ.png"),
-                        ],
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            )
-          ],
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
