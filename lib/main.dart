@@ -16,7 +16,10 @@ void main() {
       routes: {
         '/': (context) => Home(),
         '/Tools': (context) => Toolspage(),
-        '/map': (context) => Map(),
+        // '/map': (context) => MapS(
+        //       mapLat1: 9.1492,
+        //       mapLng1: 40.4989,
+        //     ),
         '/currency': (context) => Currency(),
         '/calendar': (context) => Calendar(),
         '/Calcov': (context) => CalendarConverter(),
