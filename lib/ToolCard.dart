@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/Map.dart';
 
 class ToolsCards extends StatelessWidget {
   String CardText;
@@ -10,7 +11,14 @@ class ToolsCards extends StatelessWidget {
     return Expanded(
       child: GestureDetector(
         onTap: () {
-          Navigator.pushNamed(context, '/$route');
+          if (route == "map") {
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return MapScreen(12.1492,
+                  40.4989); // Replace with desired latitude and longitude values
+            }));
+          } else {
+            Navigator.pushNamed(context, '/$route');
+          }
         },
         child: Padding(
           padding: const EdgeInsets.all(12.0),
