@@ -19,6 +19,7 @@ class EthiopianGregorianCalendar extends StatefulWidget {
 
 class _EthiopianGregorianCalendarState
     extends State<EthiopianGregorianCalendar> {
+  DateTime _selectedDate = DateTime.now();
   EtDatetime convertdate(year, month, day) {
     DateTime gregorianDate = DateTime(year, month, day);
     EtDatetime ethiopian1 = new EtDatetime.fromMillisecondsSinceEpoch(
