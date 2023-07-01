@@ -21,7 +21,7 @@ class _EthiopianGregorianCalendarState
     extends State<EthiopianGregorianCalendar> {
   DateTime _selectedDate = DateTime.now();
   EtDatetime convertdate(year, month, day) {
-    DateTime gregorianDate = DateTime(year, month, day);
+    DateTime gregorianDate = DateTime(year, month, day + 1);
     EtDatetime ethiopian1 = new EtDatetime.fromMillisecondsSinceEpoch(
         gregorianDate.millisecondsSinceEpoch);
     return ethiopian1;
@@ -32,6 +32,14 @@ class _EthiopianGregorianCalendarState
   DateTime _focusedDay = DateTime.now();
   DateTime _selectedDay = DateTime.now();
 
+  final List<String> items = [
+    'img/image1.png',
+    'img/image2.jpg',
+    'img/image3.png',
+    'img/Ethiopia-attractions-860x400.jpg'
+  ];
+  final PageController _pageController = PageController(initialPage: 1000);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,8 +48,57 @@ class _EthiopianGregorianCalendarState
       ),
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(),
+            Stack(children: [
+              Container(
+                margin: EdgeInsets.only(top: 230),
+                color: Color.fromRGBO(0, 0, 0, 0.3),
+                height: 80,
+                child: Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: Column(
+                    children: [
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("Gregorian ||   "
+                              "Ethiopian"),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                              "${_selectedDay.year}/${_selectedDay.month}/${_selectedDay.day}   ||   "
+                              "${convertdate(_selectedDay.year, _selectedDay.month, _selectedDay.day).year}/${convertdate(_selectedDay.year, _selectedDay.month, _selectedDay.day).month}/${convertdate(_selectedDay.year, _selectedDay.month, _selectedDay.day).day}")
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                height: 280,
+                child: PageView.builder(
+                  controller: _pageController,
+                  itemBuilder: (context, index) {
+                    final itemIndex = index % items.length;
+                    return Center(
+                        child: Image.asset(
+                      "${items[itemIndex]}",
+                      fit: BoxFit.cover,
+                    ));
+                  },
+                ),
+              ),
+            ]),
             Card(
               margin: const EdgeInsets.all(8.0),
               elevation: 5.0,

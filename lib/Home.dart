@@ -23,6 +23,11 @@ class _HomeState extends State<Home> {
     });
   }
 
+  TextStyle Txtstyhead = TextStyle(
+    color: Colors.black,
+    fontWeight: FontWeight.bold,
+    fontSize: 42,
+  );
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,67 +35,30 @@ class _HomeState extends State<Home> {
         title: Text("Home"),
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(12),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Featured Attractions Carousel",
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(19),
-                      // color: Colors.black,
-                    ),
-                    height: 250,
-                    child: Container(
-                        // color: Colors.blue,
-                        // height: 500, // card height
-                        child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: [
-                        FeaturedImg("imgName", "img/blue-nile-water-falls.png"),
-                        FeaturedImg("imgName",
-                            "img/Axum-the-cradel-of-Ethiopiac-civ.png"),
-                        FeaturedImg("imgName", "img/blue-nile-water-falls.png"),
-                        FeaturedImg("imgName", "img/blue-nile-water-falls.png"),
-                        FeaturedImg("imgName",
-                            "img/Axum-the-cradel-of-Ethiopiac-civ.png"),
-                        FeaturedImg("imgName", "img/blue-nile-water-falls.png"),
-                      ],
-                    )),
-                  ),
+        child: Container(
+          child: Column(children: [
+            Text(
+              "where Do You Wanna Go",
+              style: Txtstyhead,
+            ),
+            Container(
+              width: 370,
+              height: 300,
+              color: Colors.red,
+              child: ListView(
+                padding: const EdgeInsets.all(8),
+                scrollDirection: Axis.horizontal,
+                children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.only(top: 8.0),
-                    child: Column(
-                      children: [
-                        Text(
-                          '\"Traveling—it leaves you speechless then turns you into a storyteller.\"',
-                          style: TextStyle(
-                            fontSize: 32,
-                            fontWeight: FontWeight.w500,
-                          ),
-                          textAlign: TextAlign.start,
-                        ),
-                      ],
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      child: Image.asset("img/blue-nile-water-falls.png"),
                     ),
-                  ),
-                  SizedBox(
-                    height: 20,
                   ),
                 ],
               ),
-            ],
-          ),
+            )
+          ]),
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
