@@ -23,20 +23,11 @@ class _ToolscreenState extends State<Toolscreen> {
     setState(() {
       _selectedIndex = index;
       if (_selectedIndex == 2) {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) {
-            return Toolspage();
-          }),
-        );
+        Navigator.pushNamed(context, '/Tools');
       } else if (_selectedIndex == 1) {
-      } else {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) {
-            return Home();
-          }),
-        );
+        Navigator.pushNamed(context, '/ctgyScreen');
+      } else if (_selectedIndex == 0) {
+        Navigator.pushNamed(context, '/');
       }
     });
   }
