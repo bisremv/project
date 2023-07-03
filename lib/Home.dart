@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project/FeturedImg.dart';
+import 'font.dart';
 import 'package:scroll_snap_list/scroll_snap_list.dart';
 
 class Home extends StatefulWidget {
@@ -36,70 +37,59 @@ class _HomeState extends State<Home> {
     });
   }
 
-  List imgPlace = [
-    // "img/Ellipse 2.png",
-    "img/image3.png",
-    "img/image1.png",
-    "img/Ethiopia-attractions-860x400.jpg",
-    "img/image3.png",
-    "img/Axum-the-cradel-of-Ethiopiac-civ.png",
-    "img/Ellipse 2.png",
-    "img/image3.png",
-    "img/image1.png",
-    "img/Ethiopia-attractions-860x400.jpg",
-    "img/image3.png",
-    "img/Axum-the-cradel-of-Ethiopiac-civ.png",
-    "img/Ellipse 2.png",
-    "img/image3.png",
-    "img/image1.png",
-    "img/Ethiopia-attractions-860x400.jpg",
-    "img/image3.png",
-    "img/Axum-the-cradel-of-Ethiopiac-civ.png",
-    "img/blue-nile-water-falls.png"
-  ];
-  TextStyle Txtstyhead = TextStyle(
-    color: Colors.black,
-    fontWeight: FontWeight.bold,
-    fontSize: 38,
-  );
-
   Widget _buildListItem(BuildContext context, int index) {
     String imgPath = imgPlace[index];
     return SizedBox(
       width: 400,
       child: Stack(
+        alignment: Alignment.center,
         // mainAxisAlignment: MainAxisAlignment.center,
         // crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Center(
-            child: ClipPath(
-              child: Container(
-                height: 200,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    color: Colors.transparent),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(35.0),
-                  child: Card(
-                    // color: Colors.transparent,
-                    elevation: 6,
-                    //add border radius
-                    child: Image.asset(imgPath),
-                  ),
-                ),
+            child: Container(
+              width: 370,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: AssetImage(
+                      imgPath,
+                    )),
+                borderRadius: BorderRadius.all(Radius.circular(18.0)),
               ),
+              // borderRadius: BorderRadius.circular(30.0),
+              // child: Image.asset(
+              //   imgPath,
+              //   fit: BoxFit.cover,
+              //   width: double.infinity,
+              //   height: double.infinity,
+              // ),
             ),
           ),
           Positioned(
             bottom: 12,
-            left: 73,
+            left: 23,
             child: Container(
               alignment: Alignment.bottomCenter,
-              width: 260,
+              width: 350,
               height: 80,
               decoration: BoxDecoration(
                 color: Colors.white.withOpacity(0.75),
                 borderRadius: BorderRadius.circular(15),
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [Colors.blue, Colors.white],
+                  // Adjust the gradient colors to your preference
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.6),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: Offset(0, 3),
+                  ),
+                ],
               ),
               child: Column(
                 // mainAxisAlignment: MainAxisAlignment.start,
@@ -321,7 +311,7 @@ class _HomeState extends State<Home> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(28.0, 0, 0, 0),
+                    padding: const EdgeInsets.fromLTRB(18.0, 0, 0, 0),
                     child: Row(
                       children: [
                         Text("Places"),
@@ -731,7 +721,7 @@ class _HomeState extends State<Home> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(28.0, 0, 0, 0),
+                    padding: const EdgeInsets.fromLTRB(18.0, 0, 0, 0),
                     child: Row(
                       children: [
                         Text("Places"),
@@ -1141,7 +1131,7 @@ class _HomeState extends State<Home> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(28.0, 0, 0, 0),
+                    padding: const EdgeInsets.fromLTRB(18.0, 0, 0, 0),
                     child: Row(
                       children: [
                         Text("Places"),

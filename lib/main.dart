@@ -1,3 +1,6 @@
+import 'package:project/ListOfItems.dart';
+
+import 'Discription.dart';
 import 'package:flutter/material.dart';
 import 'package:project/Calendar.dart';
 import 'package:project/CalendarConverter.dart';
@@ -17,10 +20,8 @@ void main() {
       routes: {
         '/': (context) => Home(),
         '/Tools': (context) => Toolspage(),
-        // '/map': (context) => MapS(
-        //       mapLat1: 9.1492,
-        //       mapLng1: 40.4989,
-        //     ),
+        '/des': (context) => Description(),
+        '/item': (context) => ListOFItems(),
         '/currency': (context) => Currency(),
         '/ctgyScreen': (context) => CatagoryScreen(),
         '/calendar': (context) => Calendar(),
