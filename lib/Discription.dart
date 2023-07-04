@@ -94,7 +94,9 @@ class _DescriptionState extends State<Description> {
                             shape: BoxShape.circle,
                           ),
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.pushNamed(context, "/comment");
+                            },
                             style: ElevatedButton.styleFrom(
                               shape: CircleBorder(),
                             ),

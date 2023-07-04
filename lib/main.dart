@@ -1,3 +1,4 @@
+import 'package:project/Comment.dart';
 import 'package:project/ListOfItems.dart';
 
 import 'Discription.dart';
@@ -23,6 +24,7 @@ void main() {
         '/des': (context) => Description(),
         '/item': (context) => ListOFItems(),
         '/currency': (context) => Currency(),
+        '/comment': (context) => TestMe(),
         '/ctgyScreen': (context) => CatagoryScreen(),
         '/calendar': (context) => Calendar(),
         '/Calcov': (context) => CalendarConverter(),
