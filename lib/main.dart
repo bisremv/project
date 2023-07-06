@@ -1,34 +1,45 @@
-import 'package:project/Comment.dart';
-import 'package:project/ListOfItems.dart';
-
-import 'Discription.dart';
+import 'package:comment_box/comment/test.dart';
 import 'package:flutter/material.dart';
-import 'package:project/Calendar.dart';
-import 'package:project/CalendarConverter.dart';
-import 'package:project/Currency.dart';
+import 'package:project/Discription.dart';
+import 'package:project/Tools.dart';
 import 'package:project/catagory_list.dart';
-import 'Tools.dart';
+import 'GoogleSignInApi.dart';
 import 'Home.dart';
-import 'Map.dart';
+import 'Signin.dart';
+import 'package:project/Map.dart';
+import 'Comment.dart';
+import 'Calendar.dart';
+import 'CalendarConverter.dart';
+import 'Currency.dart';
+import 'ListOfItems.dart';
+// import '';
 
 void main() {
-  runApp(
-    MaterialApp(
-      theme: ThemeData(
-        primaryColor: Color(0xFF6750a4),
-      ),
-      initialRoute: '/',
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home:
+          Signin(), // Replace Description() with the widget you want as the home screen.
       routes: {
-        '/': (context) => Home(),
-        '/Tools': (context) => Toolspage(),
-        '/des': (context) => Description(),
-        '/item': (context) => ListOFItems(),
+        '/comment': (context) => Comment(),
+        '/home': (context) => Home(),
+        '/cgylist': (context) => CatagoryScreen(),
+        '/tools': (context) => Toolscreen(),
+        '/calander': (context) => Calendar(),
+        '/calconv': (context) => CalendarConverter(),
+        // '/map': (context) => MapScreen(mapLat, mapLng),
         '/currency': (context) => Currency(),
-        '/comment': (context) => TestMe(),
-        '/ctgyScreen': (context) => CatagoryScreen(),
-        '/calendar': (context) => Calendar(),
-        '/Calcov': (context) => CalendarConverter(),
+        '/des': (context) => Description(),
+        // '/com': (context) => Comment(),
+        // '/Item': (context) => ListOFItems(),
+        '/sig': (context) => Signin(),
+
+        // Add other named routes and their corresponding widgets here.
       },
-    ),
-  );
+    );
+  }
 }

@@ -1,3 +1,4 @@
+import 'Comment.dart';
 import 'package:flutter/material.dart';
 
 class Description extends StatefulWidget {
@@ -95,7 +96,16 @@ class _DescriptionState extends State<Description> {
                           ),
                           child: ElevatedButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, "/comment");
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return Scaffold(
+                                      body: Comment(),
+                                    );
+                                  },
+                                ),
+                              );
                             },
                             style: ElevatedButton.styleFrom(
                               shape: CircleBorder(),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/catagory_list.dart';
 import 'Home.dart';
 import 'ToolCard.dart';
 
@@ -23,11 +24,22 @@ class _ToolscreenState extends State<Toolscreen> {
     setState(() {
       _selectedIndex = index;
       if (_selectedIndex == 2) {
-        Navigator.pushNamed(context, '/Tools');
+        // Navigator.pushNamed(context, '/Tools');
+        Navigator.pushNamed(context, "/tools");
       } else if (_selectedIndex == 1) {
-        Navigator.pushNamed(context, '/ctgyScreen');
+        // Navigator.pushNamed(context, '/ctgyScreen');
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => CatagoryScreen(), // Replace HOME with Home
+          ),
+        );
       } else if (_selectedIndex == 0) {
-        Navigator.pushNamed(context, '/');
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Home(), // Replace HOME with Home
+            ));
       }
     });
   }
@@ -55,9 +67,9 @@ class _ToolscreenState extends State<Toolscreen> {
               ),
               Row(
                 children: [
-                  ToolsCards("Calendar", Icons.calendar_month, "calendar"),
+                  ToolsCards("Calendar", Icons.calendar_month, "calander"),
                   ToolsCards(
-                      "Calendar converter", Icons.calendar_today, "Calcov"),
+                      "Calendar converter", Icons.calendar_today, "calconv"),
                 ],
               ),
             ],

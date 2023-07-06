@@ -1,40 +1,17 @@
 import 'package:comment_box/comment/comment.dart';
 import 'package:flutter/material.dart';
+import 'Signin.dart';
+import 'package:intl/intl.dart';
 
-class TestMe extends StatefulWidget {
+class Comment extends StatefulWidget {
   @override
-  _TestMeState createState() => _TestMeState();
+  _CommentState createState() => _CommentState();
 }
 
-class _TestMeState extends State<TestMe> {
+class _CommentState extends State<Comment> {
   final formKey = GlobalKey<FormState>();
   final TextEditingController commentController = TextEditingController();
-  List filedata = [
-    {
-      'name': 'Chuks Okwuenu',
-      'pic': 'https://picsum.photos/300/30',
-      'message': 'I love to code',
-      'date': '2021-01-01 12:00:00'
-    },
-    {
-      'name': 'Biggi Man',
-      'pic': 'https://www.adeleyeayodeji.com/img/IMG_20200522_121756_834_2.jpg',
-      'message': 'Very cool',
-      'date': '2021-01-01 12:00:00'
-    },
-    {
-      'name': 'Tunde Martins',
-      'pic': 'assets/blue-nile-water-falls.png',
-      'message': 'Very cool',
-      'date': '2021-01-01 12:00:00'
-    },
-    {
-      'name': 'Biggi Man',
-      'pic': 'https://picsum.photos/300/30',
-      'message': 'Very cool',
-      'date': '2021-01-01 12:00:00'
-    },
-  ];
+  List filedata = [];
 
   Widget commentChild(data) {
     return ListView(
@@ -72,17 +49,25 @@ class _TestMeState extends State<TestMe> {
     );
   }
 
+  late String name;
+  late String img;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    // getUser(name, img);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("Comment Page"),
-        backgroundColor: Colors.pink,
+        backgroundColor: Colors.blue,
       ),
       body: Container(
         child: CommentBox(
-          userImage: CommentBox.commentImageParser(
-              imageURLorPath: "assets/img/userpic.jpg"),
+          userImage: CommentBox.commentImageParser(imageURLorPath: getPhoto()),
           child: commentChild(filedata),
           labelText: 'Write a comment...',
           errorText: 'Comment cannot be blank',
@@ -92,11 +77,11 @@ class _TestMeState extends State<TestMe> {
               print(commentController.text);
               setState(() {
                 var value = {
-                  'name': 'New User',
-                  'pic':
-                      'https://lh3.googleusercontent.com/a-/AOh14GjRHcaendrf6gU5fPIVd8GIl1OgblrMMvGUoCBj4g=s400',
+                  'name': getUser(),
+                  'pic': getPhoto(),
                   'message': commentController.text,
-                  'date': '2021-01-01 12:00:00'
+                  'date':
+                      "${DateFormat('yyyy-MM-dd HH:mm').format(DateTime.now())}"
                 };
                 filedata.insert(0, value);
               });
@@ -108,7 +93,7 @@ class _TestMeState extends State<TestMe> {
           },
           formKey: formKey,
           commentController: commentController,
-          backgroundColor: Colors.pink,
+          backgroundColor: Colors.blue,
           textColor: Colors.white,
           sendWidget: Icon(Icons.send_sharp, size: 30, color: Colors.white),
         ),

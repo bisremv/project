@@ -315,16 +315,14 @@ class _CalendarConverterScreenState extends State<CalendarConverterScreen> {
                           if (30 ==
                               checkMonthNumDays(
                                   grslectedmonth, grslectedyear)) {
-                            scrollControllergrd.jumpToItem(30 - 1);
+                            if (index > 30 - 1) {
+                              scrollControllergrd.jumpToItem(30 - 1);
+                            }
                           } else if (29 ==
                               checkMonthNumDays(
                                   grslectedmonth, grslectedyear)) {
-                            scrollControllergrd.jumpToItem(29 - 1);
-                          } else if (28 ==
-                              checkMonthNumDays(
-                                  grslectedmonth, grslectedyear)) {
-                            if (index > 28) {
-                              scrollControllergrd.jumpToItem(28 - 1);
+                            if (index > 29) {
+                              scrollControllergrd.jumpToItem(29 - 1);
                             }
                           } else if (28 ==
                               checkMonthNumDays(
@@ -368,20 +366,20 @@ class _CalendarConverterScreenState extends State<CalendarConverterScreen> {
 bool leapyear(z) {
   int x = 2015;
   int y = 2015;
-  bool ans = false;
+  // bool ans = false;
   while (x >= 1800) {
     if (z == x) {
-      ans = true;
+      return true;
     }
     x = x - 4;
   }
   while (y <= 2600) {
     if (z == y) {
-      ans = true;
+      return true;
     }
     y = y + 4;
   }
-  return ans;
+  return false;
 }
 
 int checkMonthNumDays(int numOfMonth, int currentYear) {

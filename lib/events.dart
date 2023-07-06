@@ -2,21 +2,21 @@ import 'package:flutter/material.dart';
 import 'Comment.dart';
 import 'Networking.dart';
 
-class LIstofitems extends StatefulWidget {
-  LIstofitems({Key? key}) : super(key: key);
+class Events extends StatefulWidget {
+  Events({Key? key}) : super(key: key);
 
   @override
-  State<LIstofitems> createState() => _LIstofitemsState();
+  State<Events> createState() => _EventsState();
 }
 
-class _LIstofitemsState extends State<LIstofitems> {
+class _EventsState extends State<Events> {
   String itemCategory = "ItemCategory";
   String detail =
       "Figma is a design tool that can be used to create wireframes, mockups, and prototypes. It is a popular tool for app designers because it is easy ...";
   String name = "Attraction";
   String url = "";
   Future<dynamic> getDate() async {
-    url = "https://flutterbisratgroupproject.000webhostapp.com/getdata.php";
+    url = "https://flutterbisratgroupproject.000webhostapp.com/getEv.php";
     NetworkHelper networkHelper = NetworkHelper(url);
     var res = await networkHelper.getData();
     return res;
@@ -83,7 +83,7 @@ class _LIstofitemsState extends State<LIstofitems> {
                             Padding(
                               padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
                               child: Text(
-                                snap[index]['DIsc'].toString(),
+                                snap[index]['disc'].toString(),
                                 style: TextStyle(
                                   fontSize: 16,
                                 ),
