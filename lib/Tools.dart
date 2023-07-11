@@ -25,21 +25,11 @@ class _ToolscreenState extends State<Toolscreen> {
       _selectedIndex = index;
       if (_selectedIndex == 2) {
         // Navigator.pushNamed(context, '/Tools');
-        Navigator.pushNamed(context, "/tools");
+        Navigator.pushReplacementNamed(context, "/tools");
       } else if (_selectedIndex == 1) {
-        // Navigator.pushNamed(context, '/ctgyScreen');
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => CatagoryScreen(), // Replace HOME with Home
-          ),
-        );
+        Navigator.pushReplacementNamed(context, '/cgylist');
       } else if (_selectedIndex == 0) {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => Home(), // Replace HOME with Home
-            ));
+        Navigator.pushReplacementNamed(context, '/home');
       }
     });
   }

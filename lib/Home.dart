@@ -19,33 +19,18 @@ class _HomeState extends State<Home> {
   int like = 0;
   double Rating = 4.2;
   int Comment = 0;
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
       if (_selectedIndex == 2) {
         // Navigator.pushNamed(context, '/Tools');
-        Navigator.pushNamed(context, "/tools");
+        Navigator.pushReplacementNamed(context, "/tools");
       } else if (_selectedIndex == 1) {
-        // Navigator.pushNamed(context, '/ctgyScreen');
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => CatagoryScreen(), // Replace HOME with Home
-          ),
-        );
+        Navigator.pushReplacementNamed(context, '/cgylist');
       } else if (_selectedIndex == 0) {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => Home(), // Replace HOME with Home
-            ));
+        Navigator.pushReplacementNamed(context, '/home');
       }
-    });
-  }
-
-  void _onItemFocus(int index) {
-    setState(() {
-      // _focusedIndex = index;
     });
   }
 
@@ -78,92 +63,6 @@ class _HomeState extends State<Home> {
               // ),
             ),
           ),
-          Positioned(
-            bottom: 12,
-            left: 23,
-            child: Container(
-              alignment: Alignment.bottomCenter,
-              width: 350,
-              height: 80,
-              decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.75),
-                borderRadius: BorderRadius.circular(15),
-                gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [Colors.blue, Colors.white],
-                  // Adjust the gradient colors to your preference
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.6),
-                    spreadRadius: 5,
-                    blurRadius: 7,
-                    offset: Offset(0, 3),
-                  ),
-                ],
-              ),
-              child: Column(
-                // mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(15, 4, 0, 0),
-                    child: Text(Placename),
-                  ),
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.location_on_outlined,
-                        size: 20,
-                      ),
-                      Text(PlaceLocation),
-                    ],
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(10, 0, 0, 6),
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.thumb_up,
-                          size: 22,
-                        ),
-                        Text(" $like"),
-                        SizedBox(
-                          width: 15,
-                        ),
-                        Icon(
-                          Icons.comment,
-                          size: 20,
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text("$Comment"),
-                        SizedBox(
-                          width: 65,
-                        ),
-                        Column(
-                          children: [
-                            Text("Rating"),
-                            Row(
-                              children: [
-                                Icon(
-                                  Icons.star,
-                                  size: 15,
-                                ),
-                                Text("$Rating")
-                              ],
-                            )
-                          ],
-                        )
-                      ],
-                    ),
-                  )
-                ],
-              ),
-            ),
-          )
         ],
       ),
     );
@@ -193,7 +92,7 @@ class _HomeState extends State<Home> {
                 itemSize: 400,
                 allowAnotherDirection:
                     axisDirectionIsReversed(AxisDirection.down),
-                onItemFocus: _onItemFocus,
+                onItemFocus: (index) {},
                 dynamicItemSize: true,
               ),
             ),
@@ -358,10 +257,18 @@ class _HomeState extends State<Home> {
                                 elevation: 2,
                                 child: Column(
                                   children: [
-                                    Container(
-                                      child: Image.asset(
-                                        "img/Axum-the-cradel-of-Ethiopiac-civ.png",
-                                        fit: BoxFit.fill,
+                                    GestureDetector(
+                                      onTap: () {
+                                        Navigator.pushNamed(
+                                            context, '/cgylist');
+                                      },
+                                      child: Container(
+                                        height: 132,
+                                        width: double.infinity,
+                                        child: Image.network(
+                                          "https://www.tripsavvy.com/thmb/wAzYHG2ch_3qaIC_qx0tiBXAwPM=/2967x1978/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-120503242-5901add75f9b5810dc097af7.jpg",
+                                          fit: BoxFit.fill,
+                                        ),
                                       ),
                                     ),
                                     Container(
@@ -417,10 +324,18 @@ class _HomeState extends State<Home> {
                                 elevation: 2,
                                 child: Column(
                                   children: [
-                                    Container(
-                                      child: Image.asset(
-                                        "img/Axum-the-cradel-of-Ethiopiac-civ.png",
-                                        fit: BoxFit.fill,
+                                    GestureDetector(
+                                      onTap: () {
+                                        Navigator.pushNamed(
+                                            context, '/cgylist');
+                                      },
+                                      child: Container(
+                                        height: 132,
+                                        width: double.infinity,
+                                        child: Image.network(
+                                          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSr3mW5dTWqY2XpES_Rc21GR0HSFE3daHvgpXC5H38mUbUQDV_Z9z29_ONBn7UYx6NU8Xg&usqp=CAU",
+                                          fit: BoxFit.fill,
+                                        ),
                                       ),
                                     ),
                                     Container(
@@ -466,254 +381,81 @@ class _HomeState extends State<Home> {
                             ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            width: 250,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(35),
-                              child: Card(
-                                elevation: 2,
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      child: Image.asset(
-                                        "img/Axum-the-cradel-of-Ethiopiac-civ.png",
-                                        fit: BoxFit.fill,
-                                      ),
-                                    ),
-                                    Container(
-                                      width: double.infinity,
-                                      height: 55,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/cgylist');
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              width: 250,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(35),
+                                child: Card(
+                                  elevation: 2,
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        child: Stack(
                                           children: [
-                                            Text("NAME"),
-                                            Row(
-                                              children: [
-                                                Text("Location"),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.fromLTRB(
-                                                          100, 0, 0, 0),
-                                                  child: Row(
-                                                    children: [
-                                                      Icon(
-                                                        Icons.star,
-                                                        size: 22,
-                                                      ),
-                                                      Text(
-                                                        "$Rating",
-                                                        textAlign:
-                                                            TextAlign.end,
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
+                                            Image.asset(
+                                              "img/Axum-the-cradel-of-Ethiopiac-civ.png",
+                                              fit: BoxFit.fill,
                                             ),
+                                            Container(
+                                              color: Colors.black
+                                                  .withOpacity(0.32),
+                                              height: 120,
+                                              width: 300,
+                                            ),
+                                            Center(
+                                              child: Icon(
+                                                Icons.add,
+                                                size: 90,
+                                                color: Colors.white,
+                                              ),
+                                            )
                                           ],
                                         ),
                                       ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            width: 250,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(35),
-                              child: Card(
-                                elevation: 2,
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      child: Image.asset(
-                                        "img/Axum-the-cradel-of-Ethiopiac-civ.png",
-                                        fit: BoxFit.fill,
-                                      ),
-                                    ),
-                                    Container(
-                                      width: double.infinity,
-                                      height: 55,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text("NAME"),
-                                            Row(
-                                              children: [
-                                                Text("Location"),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.fromLTRB(
-                                                          100, 0, 0, 0),
-                                                  child: Row(
-                                                    children: [
-                                                      Icon(
-                                                        Icons.star,
-                                                        size: 22,
-                                                      ),
-                                                      Text(
-                                                        "$Rating",
-                                                        textAlign:
-                                                            TextAlign.end,
-                                                      ),
-                                                    ],
+                                      Container(
+                                        width: double.infinity,
+                                        height: 55,
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text("NAME"),
+                                              Row(
+                                                children: [
+                                                  Text("Location"),
+                                                  Padding(
+                                                    padding: const EdgeInsets
+                                                        .fromLTRB(100, 0, 0, 0),
+                                                    child: Row(
+                                                      children: [
+                                                        Icon(
+                                                          Icons.star,
+                                                          size: 22,
+                                                        ),
+                                                        Text(
+                                                          "$Rating",
+                                                          textAlign:
+                                                              TextAlign.end,
+                                                        ),
+                                                      ],
+                                                    ),
                                                   ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            width: 250,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(35),
-                              child: Card(
-                                elevation: 2,
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      child: Image.asset(
-                                        "img/Axum-the-cradel-of-Ethiopiac-civ.png",
-                                        fit: BoxFit.fill,
-                                      ),
-                                    ),
-                                    Container(
-                                      width: double.infinity,
-                                      height: 55,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text("NAME"),
-                                            Row(
-                                              children: [
-                                                Text("Location"),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.fromLTRB(
-                                                          100, 0, 0, 0),
-                                                  child: Row(
-                                                    children: [
-                                                      Icon(
-                                                        Icons.star,
-                                                        size: 22,
-                                                      ),
-                                                      Text(
-                                                        "$Rating",
-                                                        textAlign:
-                                                            TextAlign.end,
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            width: 250,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(35),
-                              child: Card(
-                                elevation: 2,
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      child: Stack(
-                                        children: [
-                                          Image.asset(
-                                            "img/Axum-the-cradel-of-Ethiopiac-civ.png",
-                                            fit: BoxFit.fill,
+                                                ],
+                                              ),
+                                            ],
                                           ),
-                                          Container(
-                                            color:
-                                                Colors.black.withOpacity(0.32),
-                                            height: 120,
-                                            width: 300,
-                                          ),
-                                          Center(
-                                            child: Icon(
-                                              Icons.add,
-                                              size: 90,
-                                              color: Colors.white,
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                    Container(
-                                      width: double.infinity,
-                                      height: 55,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text("NAME"),
-                                            Row(
-                                              children: [
-                                                Text("Location"),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.fromLTRB(
-                                                          100, 0, 0, 0),
-                                                  child: Row(
-                                                    children: [
-                                                      Icon(
-                                                        Icons.star,
-                                                        size: 22,
-                                                      ),
-                                                      Text(
-                                                        "$Rating",
-                                                        textAlign:
-                                                            TextAlign.end,
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
                                         ),
-                                      ),
-                                    )
-                                  ],
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
@@ -736,7 +478,7 @@ class _HomeState extends State<Home> {
                     padding: const EdgeInsets.fromLTRB(18.0, 0, 0, 0),
                     child: Row(
                       children: [
-                        Text("Places"),
+                        Text("Event"),
                         Padding(
                           padding: const EdgeInsets.fromLTRB(208.0, 0, 0, 0),
                           child: Row(
@@ -758,782 +500,214 @@ class _HomeState extends State<Home> {
                     child: ListView(
                       scrollDirection: Axis.horizontal,
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            width: 250,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(35),
-                              child: Card(
-                                elevation: 2,
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      child: Image.asset(
-                                        "img/Axum-the-cradel-of-Ethiopiac-civ.png",
-                                        fit: BoxFit.fill,
-                                      ),
-                                    ),
-                                    Container(
-                                      width: double.infinity,
-                                      height: 55,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text("NAME"),
-                                            Row(
-                                              children: [
-                                                Text("Location"),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.fromLTRB(
-                                                          100, 0, 0, 0),
-                                                  child: Row(
-                                                    children: [
-                                                      Icon(
-                                                        Icons.star,
-                                                        size: 22,
-                                                      ),
-                                                      Text(
-                                                        "$Rating",
-                                                        textAlign:
-                                                            TextAlign.end,
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            width: 250,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(35),
-                              child: Card(
-                                elevation: 2,
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      child: Image.asset(
-                                        "img/Axum-the-cradel-of-Ethiopiac-civ.png",
-                                        fit: BoxFit.fill,
-                                      ),
-                                    ),
-                                    Container(
-                                      width: double.infinity,
-                                      height: 55,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text("NAME"),
-                                            Row(
-                                              children: [
-                                                Text("Location"),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.fromLTRB(
-                                                          100, 0, 0, 0),
-                                                  child: Row(
-                                                    children: [
-                                                      Icon(
-                                                        Icons.star,
-                                                        size: 22,
-                                                      ),
-                                                      Text(
-                                                        "$Rating",
-                                                        textAlign:
-                                                            TextAlign.end,
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            width: 250,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(35),
-                              child: Card(
-                                elevation: 2,
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      child: Image.asset(
-                                        "img/Axum-the-cradel-of-Ethiopiac-civ.png",
-                                        fit: BoxFit.fill,
-                                      ),
-                                    ),
-                                    Container(
-                                      width: double.infinity,
-                                      height: 55,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text("NAME"),
-                                            Row(
-                                              children: [
-                                                Text("Location"),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.fromLTRB(
-                                                          100, 0, 0, 0),
-                                                  child: Row(
-                                                    children: [
-                                                      Icon(
-                                                        Icons.star,
-                                                        size: 22,
-                                                      ),
-                                                      Text(
-                                                        "$Rating",
-                                                        textAlign:
-                                                            TextAlign.end,
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            width: 250,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(35),
-                              child: Card(
-                                elevation: 2,
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      child: Image.asset(
-                                        "img/Axum-the-cradel-of-Ethiopiac-civ.png",
-                                        fit: BoxFit.fill,
-                                      ),
-                                    ),
-                                    Container(
-                                      width: double.infinity,
-                                      height: 55,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text("NAME"),
-                                            Row(
-                                              children: [
-                                                Text("Location"),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.fromLTRB(
-                                                          100, 0, 0, 0),
-                                                  child: Row(
-                                                    children: [
-                                                      Icon(
-                                                        Icons.star,
-                                                        size: 22,
-                                                      ),
-                                                      Text(
-                                                        "$Rating",
-                                                        textAlign:
-                                                            TextAlign.end,
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            width: 250,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(35),
-                              child: Card(
-                                elevation: 2,
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      child: Image.asset(
-                                        "img/Axum-the-cradel-of-Ethiopiac-civ.png",
-                                        fit: BoxFit.fill,
-                                      ),
-                                    ),
-                                    Container(
-                                      width: double.infinity,
-                                      height: 55,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text("NAME"),
-                                            Row(
-                                              children: [
-                                                Text("Location"),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.fromLTRB(
-                                                          100, 0, 0, 0),
-                                                  child: Row(
-                                                    children: [
-                                                      Icon(
-                                                        Icons.star,
-                                                        size: 22,
-                                                      ),
-                                                      Text(
-                                                        "$Rating",
-                                                        textAlign:
-                                                            TextAlign.end,
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            width: 250,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(35),
-                              child: Card(
-                                elevation: 2,
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      child: Stack(
-                                        children: [
-                                          Image.asset(
-                                            "img/Axum-the-cradel-of-Ethiopiac-civ.png",
-                                            fit: BoxFit.fill,
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/cgylist');
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              width: 250,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(35),
+                                child: Card(
+                                  elevation: 2,
+                                  child: Column(
+                                    children: [
+                                      GestureDetector(
+                                        onTap: () {
+                                          Navigator.pushNamed(
+                                              context, '/cgylist');
+                                        },
+                                        child: Container(
+                                          height: 132,
+                                          width: double.infinity,
+                                          child: Image.network(
+                                            "https://i0.wp.com/random-times.com/wp-content/uploads/2021/12/img_5831.jpg?fit=900%2C571&ssl=1",
+                                            fit: BoxFit.cover,
                                           ),
-                                          Container(
-                                            color:
-                                                Colors.black.withOpacity(0.32),
-                                            height: 120,
-                                            width: 300,
+                                        ),
+                                      ),
+                                      Container(
+                                        width: double.infinity,
+                                        height: 55,
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text("NAME"),
+                                              Row(
+                                                children: [
+                                                  Text("Location"),
+                                                  Padding(
+                                                    padding: const EdgeInsets
+                                                        .fromLTRB(100, 0, 0, 0),
+                                                    child: Row(
+                                                      children: [
+                                                        Icon(
+                                                          Icons.star,
+                                                          size: 22,
+                                                        ),
+                                                        Text(
+                                                          "$Rating",
+                                                          textAlign:
+                                                              TextAlign.end,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
                                           ),
-                                          Center(
-                                            child: Icon(
-                                              Icons.add,
-                                              size: 90,
-                                              color: Colors.white,
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                    Container(
-                                      width: double.infinity,
-                                      height: 55,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text("NAME"),
-                                            Row(
-                                              children: [
-                                                Text("Location"),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.fromLTRB(
-                                                          100, 0, 0, 0),
-                                                  child: Row(
-                                                    children: [
-                                                      Icon(
-                                                        Icons.star,
-                                                        size: 22,
-                                                      ),
-                                                      Text(
-                                                        "$Rating",
-                                                        textAlign:
-                                                            TextAlign.end,
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
                                         ),
-                                      ),
-                                    )
-                                  ],
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
                           ),
                         ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              // color: Color(0xffE1DAFCFF),
-              width: double.infinity,
-              height: 260,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(18.0, 0, 0, 0),
-                    child: Row(
-                      children: [
-                        Text("Places"),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(208.0, 0, 0, 0),
-                          child: Row(
-                            children: [
-                              Text("View more"),
-                              Icon(
-                                Icons.navigate_next,
-                                size: 20,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    height: 224,
-                    // color: Colors.amberAccent,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            width: 250,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(35),
-                              child: Card(
-                                elevation: 2,
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      child: Image.asset(
-                                        "img/Axum-the-cradel-of-Ethiopiac-civ.png",
-                                        fit: BoxFit.fill,
-                                      ),
-                                    ),
-                                    Container(
-                                      width: double.infinity,
-                                      height: 55,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text("NAME"),
-                                            Row(
-                                              children: [
-                                                Text("Location"),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.fromLTRB(
-                                                          100, 0, 0, 0),
-                                                  child: Row(
-                                                    children: [
-                                                      Icon(
-                                                        Icons.star,
-                                                        size: 22,
-                                                      ),
-                                                      Text(
-                                                        "$Rating",
-                                                        textAlign:
-                                                            TextAlign.end,
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            width: 250,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(35),
-                              child: Card(
-                                elevation: 2,
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      child: Image.asset(
-                                        "img/Axum-the-cradel-of-Ethiopiac-civ.png",
-                                        fit: BoxFit.fill,
-                                      ),
-                                    ),
-                                    Container(
-                                      width: double.infinity,
-                                      height: 55,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text("NAME"),
-                                            Row(
-                                              children: [
-                                                Text("Location"),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.fromLTRB(
-                                                          100, 0, 0, 0),
-                                                  child: Row(
-                                                    children: [
-                                                      Icon(
-                                                        Icons.star,
-                                                        size: 22,
-                                                      ),
-                                                      Text(
-                                                        "$Rating",
-                                                        textAlign:
-                                                            TextAlign.end,
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            width: 250,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(35),
-                              child: Card(
-                                elevation: 2,
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      child: Image.asset(
-                                        "img/Axum-the-cradel-of-Ethiopiac-civ.png",
-                                        fit: BoxFit.fill,
-                                      ),
-                                    ),
-                                    Container(
-                                      width: double.infinity,
-                                      height: 55,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text("NAME"),
-                                            Row(
-                                              children: [
-                                                Text("Location"),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.fromLTRB(
-                                                          100, 0, 0, 0),
-                                                  child: Row(
-                                                    children: [
-                                                      Icon(
-                                                        Icons.star,
-                                                        size: 22,
-                                                      ),
-                                                      Text(
-                                                        "$Rating",
-                                                        textAlign:
-                                                            TextAlign.end,
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            width: 250,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(35),
-                              child: Card(
-                                elevation: 2,
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      child: Image.asset(
-                                        "img/Axum-the-cradel-of-Ethiopiac-civ.png",
-                                        fit: BoxFit.fill,
-                                      ),
-                                    ),
-                                    Container(
-                                      width: double.infinity,
-                                      height: 55,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text("NAME"),
-                                            Row(
-                                              children: [
-                                                Text("Location"),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.fromLTRB(
-                                                          100, 0, 0, 0),
-                                                  child: Row(
-                                                    children: [
-                                                      Icon(
-                                                        Icons.star,
-                                                        size: 22,
-                                                      ),
-                                                      Text(
-                                                        "$Rating",
-                                                        textAlign:
-                                                            TextAlign.end,
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            width: 250,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(35),
-                              child: Card(
-                                elevation: 2,
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      child: Image.asset(
-                                        "img/Axum-the-cradel-of-Ethiopiac-civ.png",
-                                        fit: BoxFit.fill,
-                                      ),
-                                    ),
-                                    Container(
-                                      width: double.infinity,
-                                      height: 55,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text("NAME"),
-                                            Row(
-                                              children: [
-                                                Text("Location"),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.fromLTRB(
-                                                          100, 0, 0, 0),
-                                                  child: Row(
-                                                    children: [
-                                                      Icon(
-                                                        Icons.star,
-                                                        size: 22,
-                                                      ),
-                                                      Text(
-                                                        "$Rating",
-                                                        textAlign:
-                                                            TextAlign.end,
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            width: 250,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(35),
-                              child: Card(
-                                elevation: 2,
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      child: Stack(
-                                        children: [
-                                          Image.asset(
-                                            "img/Axum-the-cradel-of-Ethiopiac-civ.png",
-                                            fit: BoxFit.fill,
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/cgylist');
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              width: 250,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(35),
+                                child: Card(
+                                  elevation: 2,
+                                  child: Column(
+                                    children: [
+                                      GestureDetector(
+                                        onTap: () {
+                                          Navigator.pushNamed(
+                                              context, '/cgylist');
+                                        },
+                                        child: Container(
+                                          height: 132,
+                                          width: double.infinity,
+                                          child: Image.network(
+                                            "https://pbs.twimg.com/media/DKu4DKnWsAAEsnL.jpg",
+                                            fit: BoxFit.cover,
                                           ),
-                                          Container(
-                                            color:
-                                                Colors.black.withOpacity(0.32),
-                                            height: 120,
-                                            width: 300,
-                                          ),
-                                          Center(
-                                            child: Icon(
-                                              Icons.add,
-                                              size: 90,
-                                              color: Colors.white,
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                    Container(
-                                      width: double.infinity,
-                                      height: 55,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text("NAME"),
-                                            Row(
-                                              children: [
-                                                Text("Location"),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.fromLTRB(
-                                                          100, 0, 0, 0),
-                                                  child: Row(
-                                                    children: [
-                                                      Icon(
-                                                        Icons.star,
-                                                        size: 22,
-                                                      ),
-                                                      Text(
-                                                        "$Rating",
-                                                        textAlign:
-                                                            TextAlign.end,
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
                                         ),
                                       ),
-                                    )
-                                  ],
+                                      Container(
+                                        width: double.infinity,
+                                        height: 55,
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text("NAME"),
+                                              Row(
+                                                children: [
+                                                  Text("Location"),
+                                                  Padding(
+                                                    padding: const EdgeInsets
+                                                        .fromLTRB(100, 0, 0, 0),
+                                                    child: Row(
+                                                      children: [
+                                                        Icon(
+                                                          Icons.star,
+                                                          size: 22,
+                                                        ),
+                                                        Text(
+                                                          "$Rating",
+                                                          textAlign:
+                                                              TextAlign.end,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/cgylist');
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              width: 250,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(35),
+                                child: Card(
+                                  elevation: 2,
+                                  child: Column(
+                                    children: [
+                                      GestureDetector(
+                                        onTap: () {
+                                          Navigator.pushNamed(
+                                              context, '/cgylist');
+                                        },
+                                        child: Container(
+                                          height: 132,
+                                          width: double.infinity,
+                                          child: Image.network(
+                                            "https://ethiopianmonitor.com/wp-content/uploads/2019/08/thumbs_b_c_575413c5d7d0c20172f2d3768f57bc7b-800x445.jpg",
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                      Container(
+                                        width: double.infinity,
+                                        height: 55,
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text("NAME"),
+                                              Row(
+                                                children: [
+                                                  Text("Location"),
+                                                  Padding(
+                                                    padding: const EdgeInsets
+                                                        .fromLTRB(100, 0, 0, 0),
+                                                    child: Row(
+                                                      children: [
+                                                        Icon(
+                                                          Icons.star,
+                                                          size: 22,
+                                                        ),
+                                                        Text(
+                                                          "$Rating",
+                                                          textAlign:
+                                                              TextAlign.end,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),

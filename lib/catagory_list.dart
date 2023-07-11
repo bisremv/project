@@ -3,12 +3,9 @@ import 'package:project/Historical%20event.dart';
 import 'package:project/ListOfItems.dart';
 import 'package:project/food.dart';
 import 'Home.dart';
-// import 'font.dart';
 import 'Networking.dart';
 import 'events.dart';
-import 'Historical event.dart';
 import 'listpark.dart';
-// import 'ListofitemEV.dart';
 import 'listunisco.dart';
 
 class CatagoryScreen extends StatefulWidget {
